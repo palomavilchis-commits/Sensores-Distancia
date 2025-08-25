@@ -1,8 +1,11 @@
-const int pingPin = 13; // Trigger 
-const int echoPin = 12; // Echo 
+
+
+
+const int pingPin = 3; // Trigger Pin 
+const int echoPin = 2; // Echo Pin 
 
 void setup() {
-   Serial.begin(9600); // Serial port
+   Serial.begin(9600); // Serial Port
 
 }
 
