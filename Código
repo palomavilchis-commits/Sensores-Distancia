@@ -1,0 +1,35 @@
+const int pingPin = 13; // Trigger 
+const int echoPin = 12; // Echo 
+
+void setup() {
+   Serial.begin(9600); // Serial port
+
+}
+
+void loop() {
+   long lap, pulg, cm;
+   pinMode(pingPin, OUTPUT);
+   digitalWrite(pingPin, LOW);
+   delayMicroseconds(2);
+   digitalWrite(pingPin, HIGH);
+   delayMicroseconds(10);
+   digitalWrite(pingPin, LOW);
+   pinMode(echoPin, INPUT);
+   lap = pulseIn(echoPin, HIGH);
+   pulg = microsecondsToInches(lap);
+   cm = microsecondsToCentimeters(lap);
+   Serial.print(pulg);
+   Serial.print("Pulgadas, ");
+   Serial.print(cm);
+   Serial.print("cm");
+   Serial.println();
+   delay(100);
+}
+
+long microsecondsToInches(long microseconds) {
+   return microseconds / 74 / 2;
+}
+
+long microsecondsToCentimeters(long microseconds) {
+   return microseconds / 29 / 2;
+}
